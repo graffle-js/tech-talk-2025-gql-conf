@@ -1,3 +1,3 @@
-# Tech talk at Montreal TypeScript Meetup 2024/11
+# Tech talk at GraphQL Conf 2025
 
-https://www.meetup.com/typescript-montreal/events/302867057
+https://graphqlconf2025.sched.com/event/26zPj
