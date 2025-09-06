@@ -1,0 +1,58 @@
+:root {
+	--slidev-slide-container-background: #121212;
+	--slidev-theme-primary: white;
+
+	--prism-font-size: 1em;
+	--prism-line-height: 0.8;
+	--slidev-code-line-height: 0;
+}
+
+.slidev-code {
+	--slidev-code-background: #1b1b1f;
+}
+
+.shiki {
+	background: hsla(0, 0%, 0%, 0.10)!important;
+}
+.shiki .line {
+	display: block;
+}
+
+/* html.dark #slideshow {
+} */
+
+._col {
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+}
+
+h1 {
+	line-height: 1.5!important;
+}
+
+.emoji-link {
+	border-bottom: none!important;
+	font-size: 3rem;
+}
+
+.emoji-link:hover {
+	filter: hue-rotate(280deg);
+}
+
+@keyframes hue-rotate {
+  from {
+    filter: sepia(0.35) hue-rotate(0deg);
+  }
+  to {
+    filter: sepia(0.35) hue-rotate(360deg);
+  }
+}
+
+.animate {
+  animation: hue-rotate 30s linear infinite;
+}
+
+a {
+	border-bottom-color: hsla(0, 0%, 100%, 0.3)!important;
+}
