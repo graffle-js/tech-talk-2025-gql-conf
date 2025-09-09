@@ -1,9 +1,6 @@
 import { Graffle } from 'graffle'
-import { schema } from './demos/assets/pokemon-schema/schema.js'
 
-const graffle = Graffle.create({
-  schema,
-})
+const graffle = Graffle.create()
 
 // Do whatever here!
 

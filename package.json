@@ -7,22 +7,11 @@
   "main": "index.js",
   "scripts": {
     "start": "slidev ./slides/slides.md --open",
-    "demo:1": "tsx demos/1-gql",
-    "demo:2": "tsx demos/2-memory",
-    "demo:3": "tsx demos/3-db-root-field",
-    "demo:4": "tsx demos/4-db-batch",
-    "demo:5": "tsx demos/5-db-document",
-    "demo:6": "tsx demos/6-custom-scalars",
-    "demo:7": "tsx demos/7-anyware",
-    "demo:8": "tsx demos/8-ex-method",
     "start:slides": "slidev ./slides/slides.md --open",
     "start:pokemon": "tsx demos/assets/pokemon-schema/run-server.ts",
     "gen:sdl": "tsx demos/assets/pokemon-schema/run-generate-sdl.ts",
-    "gen:graffle": "pnpm gen:sdl && graffle --schema ./demos/assets/pokemon-schema/schema.graphql --output ./demos/assets/graffle",
-    "gen:graffle:remove": "rm -rf ./demos/assets/graffle",
-    "gen:graffle2": "pnpm gen:sdl && graffle --schema ./demos/assets/pokemon-schema/schema.graphql --project ./demos/assets/project",
-    "gen:graffle2:remove": "rm -rf ./demos/assets/project/graffle",
-    "gen:reset": "pnpm gen:graffle2:remove && pnpm gen:graffle:remove"
+    "gen:graffle": "pnpm gen:sdl && cd ./demos/assets && graffle --schema ./demos/assets/pokemon-schema/schema.graphql --output ./demos/assets/graffle",
+    "gen:graffle:no-custom-scalars": "graffle --schema ./demos/assets/pokemon-schema/schema.graphql --output ./demos/assets/graffle-no-custom-scalars"
   },
   "keywords": [],
   "author": "",
@@ -33,7 +22,7 @@
     "@iconify-json/fxemoji": "^1.2.2",
     "@pothos/core": "^4.9.1",
     "@pothos/plugin-simple-objects": "^4.1.3",
-    "@pothos/plugin-zod": "^4.3.0",
+    "@pothos/plugin-zod": "4.2",
     "@slidev/cli": "^52.1.0",
     "@slidev/parser": "^52.1.0",
     "@slidev/theme-apple-basic": "^0.25.1",
@@ -45,15 +34,15 @@
     "async-cleanup": "^1.0.0",
     "dprint": "^0.50.1",
     "get-port": "^7.1.0",
-    "graffle": "8.0.0-next.133",
-    "graphql": "^16.11.0",
+    "graffle": "8.0.0-next.168",
+    "graphql": "^16.9.0",
     "graphql-scalars": "^1.24.2",
     "graphql-yoga": "^5.15.2",
     "tsx": "^4.20.5",
     "type-fest": "^4.41.0",
     "typescript": "^5.9.2",
     "vue": "^3.5.21",
-    "zod": "4"
+    "zod": "3"
   },
   "devDependencies": {
     "playwright-chromium": "^1.55.0"

@@ -1,9 +1,6 @@
-import { Graffle } from 'graffle'
-import { schema } from './assets/pokemon-schema/schema.js'
+import { Graffle } from './assets/graffle/_namespace.js'
 
-const graffle = Graffle.create({
-  schema,
-})
+const graffle = Graffle.create()
 
 const data = await graffle
   .document({

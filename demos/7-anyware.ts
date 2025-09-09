@@ -1,8 +1,7 @@
-import { Graffle } from './assets/graffle/__.js'
-import { url } from './assets/lib/serveSchema.js'
+import { Graffle } from './assets/graffle/_namespace.js'
 
 const graffle = Graffle
-  .create({ schema: url })
+  .create()
   //
   // -----------------------
   //
@@ -36,7 +35,7 @@ const graffle = Graffle
   .anyware(async ({ unpack }) => {
     console.log('3: Hello! I sniff some of the decode input.')
     if (unpack.input.transportType === 'http') {
-      console.log('3:', new URL(unpack.input.url).href)
+      console.log('3:', new URL(unpack.input.request.url).href)
     }
     return await unpack()
   })
@@ -70,6 +69,4 @@ const graffle = Graffle
     })
   })
 
-const pokemons = await graffle.query.pokemons({ name: true })
-
-console.log(pokemons)
+await graffle.query.pokemons({ name: true })

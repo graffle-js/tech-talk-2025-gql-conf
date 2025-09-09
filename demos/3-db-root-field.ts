@@ -1,10 +1,7 @@
-import { Graffle } from 'graffle'
-import { assertType } from '../techniques/lib/assert-equal.js'
-import { schema } from './assets/pokemon-schema/schema.js'
+import { Graffle } from './assets/graffle/_namespace.js'
+import { assertType } from './assets/lib/assert-equal.js'
 
-const graffle = Graffle.create({
-  schema,
-})
+const graffle = Graffle.create()
 
 /**
  * 1. Now that we have the generated types,

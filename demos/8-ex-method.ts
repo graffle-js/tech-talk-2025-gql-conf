@@ -1,50 +1,35 @@
-import { type Builder, type Context, createBuilderExtension, createExtension } from 'graffle/extensionkit'
+import { Extension } from 'graffle/extension'
+import type { GraffleKit } from 'graffle/kit'
+import { Graffle } from './assets/graffle/_namespace.js'
 
-const HelloWorld = createExtension({
-  name: 'HelloWorld',
-  normalizeConfig: (input?: { debug?: boolean }) => {
+const Echo = Extension
+  .create('echo')
+  .configurator((_) =>
+    _
+      .input<{ enabled?: boolean }>()
+      .default({ enabled: false })
+  )
+  .properties(({ configuration }) => {
+    const config = configuration.echo.current
     return {
-      debug: input?.debug ?? false,
-    }
-  },
-  create: ({ config }) => {
-    return {
-      builder: createBuilderExtension<BuilderExtension>(({ client, property, path }) => {
-        if (path.length !== 0) return
+      echo() {
+        return config.enabled ? 'echo!' : '<silence>'
+      },
+    } as any as Properties
+  })
+  .return()
 
-        if (property === 'hello') {
-          return () => {
-            if (config.debug) console.log('hello')
-            return client.with({}) // todo .with({}) call should not be needed
-          }
-        }
-
-        if (property === 'world') {
-          return () => {
-            if (config.debug) console.log('world')
-            return client.with({})
-          }
-        }
-      }),
-    }
-  },
-})
-
-interface BuilderExtension extends Builder.Extension {
-  context: Context
-  // @ts-expect-error params not type safe
-  return: BuilderExtension_<this['params']>
+export interface Properties extends Extension.PropertiesTypeFunction {
+  // @ts-expect-error
+  return: Properties_<this['parameters']['context']>
 }
 
-interface BuilderExtension_<$Arguments extends Builder.Extension.Parameters<BuilderExtension>> {
+type Properties_<$Context extends GraffleKit.Context> = {
   /**
-   * Hello
+   * Make an echo.
    */
-  hello: () => Builder.Definition.MaterializeWith<$Arguments['definition'], $Arguments['context']>
-  /**
-   * World
-   */
-  world: () => Builder.Definition.MaterializeWith<$Arguments['definition'], $Arguments['context']>
+  // @ts-expect-error
+  echo: () => $Context['configuration']['echo']['current']['enabled'] extends true ? 'echo!' : '<silence>'
 }
 
 //
@@ -55,15 +40,20 @@ interface BuilderExtension_<$Arguments extends Builder.Extension.Parameters<Buil
 //
 //
 
-import { Graffle } from 'graffle'
-import { schema } from './assets/pokemon-schema/schema.js'
-
-const debug = process.env['HW_DEBUG'] === 'true'
-
 const graffle = Graffle
-  .create({ schema })
-  .use(HelloWorld({ debug }))
+  .create()
+  .use(Echo({ enabled: true })) // note, bug: default doesn't lead to strong static typing!
 
-const pokemons = await graffle.hello().world().query.pokemons({ name: true })
+{
+  const sound = graffle
+    .with({ echo: { enabled: false } })
+    .echo()
+  console.log(sound)
+}
 
-console.log(pokemons)
+{
+  const sound = graffle
+    .with({ echo: { enabled: true } })
+    .echo()
+  console.log(sound)
+}
