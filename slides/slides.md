@@ -17,6 +17,8 @@ hideInToc: true
 
 ## A Modular Type Safe GraphQL Client
 
+#### https://graffle.js.org
+
 ---
 
 # What is it?
@@ -73,11 +75,11 @@ title: Components Overview
 layout: two-cols-header
 ```
 
-# Is it <strike>done</strike> production ready?
+# Is it done?
 
-- No (but maybe good enough for you?)
-- Continuous pre-releases: `pnpm add graffle@next`
-- 500+ tests: unit (type & value level) + E2E
+- No
+- But pre-releases available `pnpm add graffle@next`
+- 500+ tests spanning unit and E2E
 - Bug fixes prioritized (closed in single digit days)
 
 ::left::
@@ -100,26 +102,14 @@ layout: two-cols-header
 
 ---
 
-<style>
-.local .slidev-code {
-  font-size: 1.8rem;
-}
-</style>
-<div class="local">
-
 # What's Next?
 
-```
-* chore(docs)            : Better documentation (Website, JSDoc)
-* refactor               : Extract anyware package
-* feat(request)          : OneOf, @defer, @stream, subscription
-* improve(types)         : Simplify _appearance of_ public interface types
-* feat(extension/*)      : More: Effect, Cache, BatchRequest ...
-* feat                   : Automated Clients: @graffle/client-github | shopify | cloudflare-queues | yelp
-* feat(extension-system) : Extensible directives
-```
-
-</div>
+- Split a core package from extensions and CLI and extract a few local libraries into packages
+- Improve documentation
+- Improve Document Builder extension
+  - Add support for OneOf, @defer, @stream
+  - Make directives extensible
+- Add support for subscriptions
 
 ---
 
