@@ -7,7 +7,7 @@ fonts:
   sans: Inter
 layout: intro-image-right
 image: /assets/logo.svg
-title: Exploring Advanced Type Level Techniques
+title: A Modular Type Safe GraphQL Client
 hideInToc: true
 ---
 
@@ -24,7 +24,7 @@ hideInToc: true
 # What is it?
 
 - A TypeScript library for sending GraphQL requests
-- `npm add graffle@next`
+- Best for tests, scripts, backend, ...
 - Inspirations include Genql and Prisma
 - What makes it special:
   - Document builder supporting all of GraphQL
@@ -118,6 +118,8 @@ layout: statement
 ```
 
 # Thanks!
+
+https://github.com/graffle-js/tech-talk-2025-gql-conf
 
 https://graffle.js.org
 
