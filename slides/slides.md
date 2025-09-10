@@ -123,4 +123,6 @@ https://github.com/graffle-js/tech-talk-2025-gql-conf
 
 https://graffle.js.org
 
-https://bsky.app/profile/kuhrt.me
+BlueSky: @kuhrt.me
+
+GitHub: @jasonkuhrt

@@ -4,7 +4,8 @@ import { Graffle } from 'graffle'
  * 1. We construct a Graffle instance and set its transport.
  */
 
-const graffle = Graffle.create()
+const graffle = Graffle
+  .create()
   .transport({
     url: 'http://localhost:3000/graphql',
   })
