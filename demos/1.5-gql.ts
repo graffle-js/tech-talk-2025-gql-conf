@@ -5,7 +5,8 @@ import { GraffleBare as Graffle } from 'graffle/presets/bare'
  * 1. We construct a Graffle instance and set its transport.
  */
 
-const graffle = Graffle.create()
+const graffle = Graffle
+  .create()
   .use(TransportHttp)
   .transport({
     url: 'http://localhost:3000/graphql',
